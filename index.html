@@ -5,26 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucas Eduardo</title>
     <link rel="stylesheet" href="/styles.css">
+    
 </head>
 <body>
-    <header class="header">
-        <p>header</p>
-        <button class="contato">Contato</button>
+    <header class="header" id="header">
+        <button class="pushable" data-target="home">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <span class="front"> Home </span>
+          </button>
+          <button class="pushable" data-target="hab">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <span class="front"> Habilidades </span>
+          </button>
+          <button class="pushable">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <span class="front"> Habilidades </span>
+          </button>
     </header>
-    <div class="container">
-        <head>
-            <h1>Desenvolvedor Frontend e Sistemas</h1>
-            <h3>Desenvolvo em HTML/CSS/JS, Python, Reactjs/Native</h3>
+    <div class="container" id="home">
+        <div class="head">
+            <h1 class="top-title" >Desenvolvedor Frontend e Sistemas</h1>
+            <h3 class="top-title">Desenvolvo em HTML/CSS/JS, Python, Reactjs/Native</h3>
             <img class="image" src="/img//image.jpg" alt="profile">
             <img class="banner" src="/img//banner.png" alt="banner">
-        </head>
+        </div>
         <div class="content">
             <div class="previewText">
                 <h3>Oi, sou o Lucas Eduardo. Prazer em te conhecer!</h3>
                 <p> Desde que comecei minha jornada como entusiasta de programação há 4 anos, venho aprimorando minhas habilidades e explorando novas tecnologias. Tenho experiência em Web Design, trabalhando com HTML, CSS, JavaScript e ReactJS, além de React Native para desenvolvimento mobile. Sou apaixonado por Python e banco de dados, com um foco especial no Firebase, onde venho desenvolvendo integrações sólidas e eficientes para diversas aplicações. Sou naturalmente curioso, confiante no que faço e estou sempre buscando formas de me aprimorar e criar soluções práticas e inovadoras</p>
             </div>
         </div>
-        <div class="hab">
+        <div class="hab" id="hab">
             <div class="card1">
                 <img src="/img/frontend.png" alt="htmlcss">
                 <div class="cards">
@@ -46,13 +60,13 @@
                     <p>Python, Pandas, NumPy, Django, Flask</p>
                     <h3>Ferramentas de Desenvolvimento:</h3>
                     <p>Jupyter Notebook, VS Code, PyCharm, Git, Docker, Heroku, AWS</p>
-    
+                    
                 </div>
             </div>
             <div class="card3">
                 <img src="/img/reactjs.png" alt="htmlcss">
                 <div class="cards">
-                    <h2>ReactJS/React Native</h2>
+                    <h2>ReactJS/Native</h2>
                     <p>Amo transformar experiências de usuário em interfaces intuitivas para web e mobile.</p>
                     <h3>Tecnologias que domino:</h3>
                     <p>ReactJS, React Native, Redux, Context API, Axios</p>
@@ -61,6 +75,12 @@
                 </div>
             </div>
         </div>
+        
     </div>
+    <section id="projetos">
+        <h2>Meus Projetos</h2>
+        <div id="project-list" class="project-grid"></div>
+      </section>      
+    <script src="/script.js" defer></script>
 </body>
 </html>
