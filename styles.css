@@ -384,9 +384,8 @@
       .mobile-menu {
         display: block;
       }
-    }
-    
-    .nav-list.active {
+      
+      .nav-list.active {
       transform: translateX(0);
     }
     
@@ -442,12 +441,12 @@
         height: auto;
     }
     .content{
-        display: flex;
+      display: flex;
         width: 100%;
         background-color: var(--primary-color);
-    }
+      }
     .previewText{
-        padding-top: 10%;
+      padding-top: 10%;
         padding-bottom: 20%;
         flex-direction: column;
         display: flex;
@@ -501,21 +500,21 @@
     
     }
     .hab h2{
-        color: #313131;
-        padding: 5px 0;
-        width: 90%;
+      color: #313131;
+      padding: 5px 0;
+      width: 90%;
         color: var(--primary-color);
         font-family: var(--font-family);
         font-weight: 700;
     }
     .hab h3{
-        color: var(--secondary-color);
-        font-family: var(--font-family);
+      color: var(--secondary-color);
+      font-family: var(--font-family);
         font-weight: 500;
         font-style: var(--font-style);
     }
     .hab p{
-        width: 80%;
+      width: 80%;
         height: 100px;
         display: flex;
         justify-content: center;
@@ -525,7 +524,7 @@
         font-size: small;
     }
     .hab img{
-        height: auto;
+      height: auto;
         margin-top: 10%;
         width: 30%;
 
@@ -542,7 +541,7 @@
     }
     .card1:hover{
         border: 1px solid var(--secondary-color);
-    }#skill-cards{
+      }#skill-cards{
         width: 100%;
         height: 100%;
         text-align: center;
@@ -557,14 +556,14 @@
     }
     .card3:hover{
         border: 1px solid blue;
-    }
-    .scroll-btn{
+      }
+      .scroll-btn{
         color: blue;
         text-decoration: underline;
         cursor: pointer;
     }
     #projetos{
-        display: flex;
+      display: flex;
         justify-content: center;
         flex-direction: column;
         text-align: center;
@@ -575,12 +574,12 @@
         font-family: var(--font-family);
         font-weight: bold;
         font-style: var(--font-style);
-    }
+      }
     #projetos h2{
         color: white;
         font-size: 40px;
-    }
-    .project-grid {
+      }
+      .project-grid {
         padding: 5%;
         display: flex;
         justify-content: space-around;
@@ -599,15 +598,15 @@
     
     .project-card:hover {
         transform: scale(1.05);
-    }
-    
-    .project-card img {
+      }
+      
+      .project-card img {
         width: 100%;
         height: auto;
-    }
+      }
     
     .project-card h3 {
-        margin: 10px 0;
+      margin: 10px 0;
         font-size: 18px;
         display: flex;
         width: 100%;
@@ -616,5 +615,4 @@
     .project-card a{
         text-decoration: none;
     }
-
-
+  }
