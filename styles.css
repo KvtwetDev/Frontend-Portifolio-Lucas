@@ -15,7 +15,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 #projetos h2, .contato h2{
     color: var(--background-color);
     font-size: 40px;
@@ -35,11 +34,7 @@
     align-items: center;
     width: 100%;
 }
-* {
-    margin: 0;
-    padding: 0;
-  }
-  
+
   a {
     color: #fff;
     text-decoration: none;
@@ -95,7 +90,6 @@
 }
 .container h1{
     margin-top: 5%;
-    margin-top: 15%; 
 }
 .container h3{
     margin-top: 2%;
@@ -109,12 +103,13 @@
 .image{
     border-radius: 50%;
     height: auto;
-    width: 15%;
-    margin-top: 8%;
+    width: 10%;
+    margin-top: 5%;
 }
 .banner{
     width: 80%;
     height: auto;
+    margin-top: 5%;
 }
 .content{
     display: flex;
