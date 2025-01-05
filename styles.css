@@ -211,7 +211,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 100%;
+    width: 100vw;
     padding-top: 10%;
     margin-top: -10%;
     background-color: var(--primary-color);
@@ -224,15 +224,18 @@
   }
   
 .project-card {
-    border: 1px solid #ddd;
+    border: 1px solid black;
     border-radius: 8px;
     overflow: hidden;
     text-align: center;
     transition: transform 0.3s ease;
     width: 20%;
     background-color: var(--background-color);
-    
 }
+.project-card a{
+  color: black;
+}
+
 
 .project-card:hover {
     transform: scale(1.05);

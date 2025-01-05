@@ -1,18 +1,11 @@
-// Seleciona todos os links de navegação
 const navLinks = document.querySelectorAll('.nav-list a');
 
 navLinks.forEach(link => {
     link.addEventListener('click', (event) => {
-        // Previne o comportamento padrão do link
         event.preventDefault();
-
-        // Pega o valor do data-target
         const targetId = link.getAttribute('data-target');
-
-        // Seleciona o alvo com base no id
         const targetSection = document.getElementById(targetId);
 
-        // Rola suavemente até a seção desejada
         if (targetSection) {
             targetSection.scrollIntoView({
                 behavior: 'smooth',
@@ -22,52 +15,69 @@ navLinks.forEach(link => {
     });
 });
 
-
-const username = 'kvtwet'; // Substitua pelo seu nome de usuário no GitHub.
+const username = 'KvtwetDev';
 const projectList = document.getElementById('project-list');
 
 async function fetchGitHubProjects() {
   try {
-    // Faz a requisição para obter os repositórios públicos
     const response = await fetch(`https://api.github.com/users/${username}/repos`);
+    if (!response.ok) throw new Error('Erro ao acessar a API do GitHub.');
     const repositories = await response.json();
 
-    // Filtra somente os repositórios que possuem uma descrição (ou outra tag que você decida usar)
-    const projects = repositories.filter(repo => repo.name.startsWith('Frontend-'));
+    const projects = repositories.filter(repo => repo.name.startsWith('frontend-'));
 
-    // Gera a interface para cada projeto
+    if (projects.length === 0) {
+      projectList.innerHTML = `<p>Nenhum projeto encontrado.</p>`;
+      return;
+    }
+
     projects.forEach(repo => {
-      // Caminho da thumbnail (ajuste o caminho de acordo com o seu projeto no GitHub)
-      const thumbnailUrl = `https://raw.githubusercontent.com/${username}/${repo.name}/main/thumbnail.png`;
-
-      const projectCard = document.createElement('div');
-      projectCard.className = 'project-card';
-      
-      projectCard.innerHTML = `
-      <a href="${repo.html_url}" target="_blank">
-          <img src="${thumbnailUrl}" alt="${repo.name.replace(/-/g, ' ')} Thumbnail" />
-          <h3>${repo.name.replace(/-/g, ' ')}</h3>
-          </a>
-          `;
-          
-          projectList.appendChild(projectCard);
-        });
-      } catch (error) {
+      const projectCard = createProjectCard(repo);
+      projectList.appendChild(projectCard);
+    });
+  } catch (error) {
     console.error('Erro ao carregar os projetos do GitHub:', error);
+    projectList.innerHTML = `<p>Não foi possível carregar os projetos no momento. Tente novamente mais tarde.</p>`;
   }
+}
+
+function capitalizeWords(name) {
+  return name
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ');
+}
+
+function createProjectCard(repo) {
+  const thumbnailUrl = `https://raw.githubusercontent.com/${username}/${repo.name}/main/thumbnail.png`;
+  const formattedName = capitalizeWords(
+    repo.name
+      .replace(/frontend/gi, '')
+      .replace(/html/gi, '')
+      .replace(/-/g, ' ')
+      .trim()
+  );
+
+  const projectCard = document.createElement('div');
+  projectCard.className = 'project-card';
+  projectCard.innerHTML = `
+    <a href="${repo.html_url}" target="_blank">
+      <img src="${thumbnailUrl}" alt="${formattedName} Thumbnail" />
+      <h3>${formattedName}</h3>
+    </a>
+  `;
+  return projectCard;
 }
 
 fetchGitHubProjects();
 
-function openWhatsapp(){
-  var number = "5541999306412";
-  var whatsappUrl = "whatsapp://send?phone="+ number;
-  
-  window.location.href = whatsappUrl;
+function openWhatsapp() {
+  var number = "5548933804333";
+  var whatsappUrl = "https://wa.me/" + number;
 
-  setTimeout(function() {
-    window.location.href = "https://wa.me/" + number;
-    }, 1000);
+  window.open(whatsappUrl, "_blank")
+
+
 }
 
 class MobileNavbar {
@@ -78,7 +88,7 @@ class MobileNavbar {
     this.activeClass = "active";
 
     this.handleClick = this.handleClick.bind(this);
-    this.handleLinkClick = this.handleLinkClick.bind(this); // Método para fechar o menu ao clicar no link
+    this.handleLinkClick = this.handleLinkClick.bind(this);
   }
 
   animateLinks() {
@@ -97,7 +107,6 @@ class MobileNavbar {
     this.animateLinks();
   }
 
-  // Método para fechar o menu quando um link for clicado
   handleLinkClick() {
     this.navList.classList.remove(this.activeClass);
     this.mobileMenu.classList.remove(this.activeClass);
@@ -106,8 +115,6 @@ class MobileNavbar {
 
   addClickEvent() {
     this.mobileMenu.addEventListener("click", this.handleClick);
-    
-    // Adiciona um evento de clique em cada link para fechar o menu
     this.navLinks.forEach(link => {
       link.addEventListener("click", this.handleLinkClick);
     });
