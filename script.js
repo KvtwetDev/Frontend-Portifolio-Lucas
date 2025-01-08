@@ -134,3 +134,30 @@ const mobileNavbar = new MobileNavbar(
   ".nav-list li",
 );
 mobileNavbar.init();
+
+document.getElementById('contact-form').addEventListener('submit', function (event) {
+  event.preventDefault();
+
+
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
+
+
+  emailjs.init('Ca0HiHOTFLxA1lpdT');
+
+  const templateParams = {
+      email: email,
+      message: message,
+  };
+
+  emailjs.send('service_ingo2zq', 'template_ocwhccm', templateParams)
+      .then(function (response) {
+          alert('E-mail enviado com sucesso!');
+          document.getElementById('contact-form').reset();
+          console.log('Sucesso:', response.status, response.text);
+      }, function (error) {
+          alert('Erro ao enviar e-mail, tente novamente.');
+          console.error('Erro:', error);
+      });
+});
+
